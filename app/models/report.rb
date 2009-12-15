@@ -39,7 +39,7 @@ class Report < ActiveRecord::Base
   end
 
   def set_success_status
-    self.success = success?
+    self.success = succeeded?
   end
 
   def set_node_reported_at
