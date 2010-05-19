@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_user
-    unless current_user
+    if APP_CONFIG[:authenticate] && current_user.nil?
       store_location
       flash[:notice] = "You must be logged in to access this page"
       redirect_to new_user_session_url
